@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/1 | Blog</title>
+  <title>Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="尽管简单易用一直是 NexT 主题的首要目标，但现实与想法总是有那么一个缝隙，难怪有人说诗要源于生活后低于生活，着实有着深刻的哲学道理。那么无论这背后是什么样的原因导致，总结起来就是 NexT 不好用。在初期使用者比较少的情况，还可以有耐心的一个个解答；后来发现一直在回答类似的问题，加上要做和想做的事情太多而无暇顾及，于是就想写一份文档缓和一下这个问题。 前季剧情回顾 起先，我使用 Hexo 搭建">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2018/01/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/01/14/NexT Documentations Reload/index.html">
 <meta property="og:site_name" content="Blog">
+<meta property="og:description" content="尽管简单易用一直是 NexT 主题的首要目标，但现实与想法总是有那么一个缝隙，难怪有人说诗要源于生活后低于生活，着实有着深刻的哲学道理。那么无论这背后是什么样的原因导致，总结起来就是 NexT 不好用。在初期使用者比较少的情况，还可以有耐心的一个个解答；后来发现一直在回答类似的问题，加上要做和想做的事情太多而无暇顾及，于是就想写一份文档缓和一下这个问题。 前季剧情回顾 起先，我使用 Hexo 搭建">
+<meta property="og:updated_time" content="2018-01-14T09:57:22.287Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Blog">
+<meta name="twitter:description" content="尽管简单易用一直是 NexT 主题的首要目标，但现实与想法总是有那么一个缝隙，难怪有人说诗要源于生活后低于生活，着实有着深刻的哲学道理。那么无论这背后是什么样的原因导致，总结起来就是 NexT 不好用。在初期使用者比较少的情况，还可以有耐心的一个个解答；后来发现一直在回答类似的问题，加上要做和想做的事情太多而无暇顾及，于是就想写一份文档缓和一下这个问题。 前季剧情回顾 起先，我使用 Hexo 搭建">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
@@ -145,85 +149,89 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-NexT Documentations Reload" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>尽管简单易用一直是 NexT 主题的首要目标，但现实与想法总是有那么一个缝隙，难怪有人说诗要源于生活后低于生活，着实有着深刻的哲学道理。那么无论这背后是什么样的原因导致，总结起来就是 NexT 不好用。在初期使用者比较少的情况，还可以有耐心的一个个解答；后来发现一直在回答类似的问题，加上要做和想做的事情太多而无暇顾及，于是就想写一份文档缓和一下这个问题。</p>
+<p>前季剧情回顾</p>
+<p>起先，我使用 Hexo 搭建了第一版的 NexT 使用文档站点。UI 框架选择的是 Semantic UI，并且新建了一个主题称为 Luminosa。然而我发现要在 Markdown 里使用 Semantic UI 的组件有点麻烦，以及 Hexo 在解析 Markdown 时会自动加上很多空行的问题。不得已之下，只能创建了几个 Tag Plugins 封装了一下使用到的 Semantic UI 的组件。</p>
+<p>这也就解释了为什么在使用了 Semantic UI 的情况下，整体界面依然如此的粗糙与潦草，因为我把时间都花在写 Plugin 上了。至于文档的质量，早就被忘记在春天的田野里了。夏天是个愉快的季节，毕竟是 Sunshine 与比基尼同在的日子，文档的事情就别提了（我记得有一位热心的用户曾给 Docs 发过一个 PR，我没有 merge，在此说下抱歉）。然而时间就是个无情的戏子，夏天的风景还没看够就火急火燎地带来了秋天。秋天是文人墨客各领风骚的季节，到处是寂寞与沧桑，就在这样一个浮躁的季节里，我回头看了下文档，深刻地意识到只有呵呵能表达我对自己直触灵魂的佩服。</p>
+<p>短期计划乱入</p>
+<p>那么，经过一个工作忙碌周期后得已有些空闲时间，就把最近的空闲时间花在重新制作与编写 NexT 文档。目前的计划是，近期发布一个 Release 出去，版本号从 0.4 直接升级到 5.0.0（紧随 Facebook 大法脚步）。这个 Release 主要包含的是 Pisces Scheme ，修复 Pisces 引入的 Bug 以及更新文档。在此以后应该有一个小的更新，主要解决 Issues 里反馈的 Bug。再下一步是侧栏的重写，以及图片展示（这玩意一直搁着）。短期计划差不多就这样。</p>
+<p>文档的重装上阵</p>
+<p>说回文档。有了第一版的经验，第二版就决定不再使用 Hexo 了。在 Markdown 里写大段的 HTML 代码，干脆就直接写 HTML 代码好了，除了要多写一些结构性标签以外（其实很多），写 HTML 还是比较直接。这样得到的好处是内容层比较好控制后，外观和行为也就没有什么障碍。</p>
+<p>第二版选择了 Bootstrap 作为 UI 框架，使用 Nunjucks 模板引擎，Sass 预处理语言以及 Gulp 构建工具。起初技术栈没这么有档次的感觉，我只想好好的写份文档，但到写第三个页面时，实在受不了了每次都要复制头尾相同的文档内容，这万一要改下这公共的内容，那就不能好好的写文档了。</p>
+<p>于是就引入了 Nunjucks。而使用一个模板引擎的话，就得解决从模板生成页面的问题，这个问题包括开发过程以及部署代码生成过程。幸运的是，这个问题并不难。使用 Nunjucks 的 API 生成一个 Renderer，而后这个 Renderer 可以用在 BrowserSync 的中间件中以及 Gulp 的部署生成任务中。顺利地解决了模板渲染的问题。所以，文档绝大多数内容都是 HTML 代码，唯一的例外是代码片段。考虑到在 HTML 中书写 HTML 源代码要对大量的 &lt; 以及 &gt; 做转换，所以我增加了一个 code 的标签，用来快速的插入代码片段。</p>
+<p>插个广告，安利下 BrowserSync 这个神器，自动刷新、多设备同步、中间件支持、Proxy 支持，真是前端开发必备神器，谁用谁知道。我曾在一个项目中使用 Grunt 做双重 Watcher，第一重 Watcher 用于监听源码的改动并生成预部署的代码；第二重 Watcher 监听预部署的代码并部署代码到应用程序容器下。使用 BrowserSync 后只要一个 Watcher 加 Proxy 即可轻松解决这个场景的需求。自从用了 BrowserSync，感觉一下子年轻了好几岁，爬楼都有劲了（超过时的广告文案）。</p>
+<p>大体框架搞定后就是文档内容了。我花了点时间重新润色了下当前已有文档的内容，争取把每一个点都详细的写明，目前仍在继续撰写中（「撰写」这个词很有力度，直接表明了写文档的难度系数极高）。然后发现 NexT 包含了很多特性，有些我也没有在使用。所以如果你有看到有遗漏的不妨访问 NexT 文档发个 Issue，或者 Pull Request 更赞。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/14/记近期电脑设备升级一事（测试）/" class="archive-article-date">
-  	<time datetime="2018-01-14T09:58:36.676Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-14</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/14/NexT Documentations Reload/" class="archive-article-date">
-  	<time datetime="2018-01-14T09:57:22.063Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-14</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/14/使用 Travis CI 自动更新 GitHub Pages/" class="archive-article-date">
-  	<time datetime="2018-01-14T09:54:33.661Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-14</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2018/01/14/记近期电脑设备升级一事（测试）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/14/使用 Travis CI 自动更新 GitHub Pages/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -246,8 +254,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
