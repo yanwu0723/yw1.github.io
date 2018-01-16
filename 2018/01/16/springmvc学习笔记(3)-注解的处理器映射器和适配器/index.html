@@ -6,21 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Blog</title>
+  <title>springmvc学习笔记(3)-注解的处理器映射器和适配器 | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="springmvc学习笔记(6)-springmvc整合mybatis(IDEA中通过maven构建)标签： springmvc mybatis  Contents  整合思路 工程结构 添加依赖 建包     本文主要展示如何在intellij IDEA中通过maven构建springmvc+mybatis框架的开发环境。 需求：使用springmvc和mybatis完成商品列表查询 整合思路">
+  <meta name="description" content="Contents  默认加载 注解的处理器映射器和适配器 开发注解Handler 在spring容器中加载Handler 参考资料   本文主要介绍注解的处理器映射器和适配器相关配置 默认加载前端控制器从\org\springframework\web\servlet\DispatcherServlet.properties件中加载处理器映射器、适配器、视图解析器等组件，如果不在springmvc">
+<meta name="keywords" content="springmvc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="http://yoursite.com/2018/01/16/springmvc学习笔记(6)-springmvc整合mybatis(IDEA中通过maven构建)/index.html">
+<meta property="og:title" content="springmvc学习笔记(3)-注解的处理器映射器和适配器">
+<meta property="og:url" content="http://yoursite.com/2018/01/16/springmvc学习笔记(3)-注解的处理器映射器和适配器/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="springmvc学习笔记(6)-springmvc整合mybatis(IDEA中通过maven构建)标签： springmvc mybatis  Contents  整合思路 工程结构 添加依赖 建包     本文主要展示如何在intellij IDEA中通过maven构建springmvc+mybatis框架的开发环境。 需求：使用springmvc和mybatis完成商品列表查询 整合思路">
-<meta property="og:image" content="http://7xph6d.com1.z0.glb.clouddn.com/springmvc_%E6%95%B4%E5%90%88mybatis%E6%80%9D%E8%B7%AF.png">
-<meta property="og:image" content="http://7xph6d.com1.z0.glb.clouddn.com/springmvc_%E6%95%B4%E5%90%88%E5%B7%A5%E7%A8%8B-1.png">
-<meta property="og:updated_time" content="2017-04-21T13:38:25.000Z">
+<meta property="og:description" content="Contents  默认加载 注解的处理器映射器和适配器 开发注解Handler 在spring容器中加载Handler 参考资料   本文主要介绍注解的处理器映射器和适配器相关配置 默认加载前端控制器从\org\springframework\web\servlet\DispatcherServlet.properties件中加载处理器映射器、适配器、视图解析器等组件，如果不在springmvc">
+<meta property="og:updated_time" content="2018-01-16T11:20:21.639Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog">
-<meta name="twitter:description" content="springmvc学习笔记(6)-springmvc整合mybatis(IDEA中通过maven构建)标签： springmvc mybatis  Contents  整合思路 工程结构 添加依赖 建包     本文主要展示如何在intellij IDEA中通过maven构建springmvc+mybatis框架的开发环境。 需求：使用springmvc和mybatis完成商品列表查询 整合思路">
-<meta name="twitter:image" content="http://7xph6d.com1.z0.glb.clouddn.com/springmvc_%E6%95%B4%E5%90%88mybatis%E6%80%9D%E8%B7%AF.png">
+<meta name="twitter:title" content="springmvc学习笔记(3)-注解的处理器映射器和适配器">
+<meta name="twitter:description" content="Contents  默认加载 注解的处理器映射器和适配器 开发注解Handler 在spring容器中加载Handler 参考资料   本文主要介绍注解的处理器映射器和适配器相关配置 默认加载前端控制器从\org\springframework\web\servlet\DispatcherServlet.properties件中加载处理器映射器、适配器、视图解析器等组件，如果不在springmvc">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
@@ -152,70 +150,55 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-springmvc学习笔记(6)-springmvc整合mybatis(IDEA中通过maven构建)" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-springmvc学习笔记(3)-注解的处理器映射器和适配器" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      springmvc学习笔记(3)-注解的处理器映射器和适配器
+    </h1>
+  
+
+        
+        <a href="/2018/01/16/springmvc学习笔记(3)-注解的处理器映射器和适配器/" class="archive-article-date">
+  	<time datetime="2018-01-16T09:38:54.467Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-16</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="springmvc学习笔记-6-springmvc整合mybatis-IDEA中通过maven构建"><a href="#springmvc学习笔记-6-springmvc整合mybatis-IDEA中通过maven构建" class="headerlink" title="springmvc学习笔记(6)-springmvc整合mybatis(IDEA中通过maven构建)"></a>springmvc学习笔记(6)-springmvc整合mybatis(IDEA中通过maven构建)</h1><p>标签： springmvc mybatis</p>
-<hr>
-<p><strong>Contents</strong></p>
+        <p><strong>Contents</strong></p>
 <ul>
-<li><a href="#整合思路">整合思路</a></li>
-<li><a href="#工程结构">工程结构</a><ul>
-<li><a href="#添加依赖">添加依赖</a></li>
-<li><a href="#建包">建包</a></li>
-</ul>
-</li>
+<li><a href="#默认加载">默认加载</a></li>
+<li><a href="#注解的处理器映射器和适配器">注解的处理器映射器和适配器</a></li>
+<li><a href="#开发注解handler">开发注解Handler</a></li>
+<li><a href="#在spring容器中加载handler">在spring容器中加载Handler</a></li>
+<li><a href="#参考资料">参考资料</a></li>
 </ul>
 <hr>
-<p>本文主要展示如何在intellij IDEA中通过maven构建springmvc+mybatis框架的开发环境。</p>
-<p>需求：使用springmvc和mybatis完成商品列表查询</p>
-<h2 id="整合思路"><a href="#整合思路" class="headerlink" title="整合思路"></a>整合思路</h2><p><img src="http://7xph6d.com1.z0.glb.clouddn.com/springmvc_%E6%95%B4%E5%90%88mybatis%E6%80%9D%E8%B7%AF.png" alt="springmvc_整合mybatis思路"></p>
+<p>本文主要介绍注解的处理器映射器和适配器相关配置</p>
+<h2 id="默认加载"><a href="#默认加载" class="headerlink" title="默认加载"></a>默认加载</h2><p>前端控制器从<code>\org\springframework\web\servlet\DispatcherServlet.properties</code>件中加载处理器映射器、适配器、视图解析器等组件，如果不在springmvc.xml中配置，则使用默认加载的</p>
+<p>注解的处理器映射器和适配器</p>
 <ul>
-<li><p>第一步：整合dao层</p>
+<li>在spring3.1之前使用<code>org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping</code>注解映射器。</li>
+<li>在spring3.1之后使用<code>org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping</code>注解映射器。</li>
+<li>在spring3.1之前使用<code>org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter</code>注解适配器。</li>
+<li>在spring3.1之后使用<code>org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter</code>注解适配器</li>
+</ul>
+<h2 id="注解的处理器映射器和适配器"><a href="#注解的处理器映射器和适配器" class="headerlink" title="注解的处理器映射器和适配器"></a>注解的处理器映射器和适配器</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 注解的映射器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 注解的适配器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 使用mvc:annotation-driven代替上面两个注解映射器和注解适配的配置</span></span><br><span class="line"><span class="comment"> mvc:annotation-driven默认加载很多的参数绑定方法，</span></span><br><span class="line"><span class="comment"> 比如json转换解析器默认加载了，如果使用mvc:annotation-driven则不用配置上面的RequestMappingHandlerMapping和RequestMappingHandlerAdapter</span></span><br><span class="line"><span class="comment"> 实际开发时使用mvc:annotation-driven</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:annotation-driven</span>&gt;</span><span class="tag">&lt;/<span class="name">mvc:annotation-driven</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="开发注解Handler"><a href="#开发注解Handler" class="headerlink" title="开发注解Handler"></a>开发注解Handler</h2><p>使用注解的映射器和注解的适配器。(使用注解的映射器和注解的适配器必须配对使用)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用@Controller来标识它是一个控制器</span></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemsController3</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//商品查询列表</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/queryItems"</span>)</span><br><span class="line">    <span class="comment">//实现 对queryItems方法和url进行映射，一个方法对应一个url</span></span><br><span class="line">    <span class="comment">//一般建议将url和方法写成一样</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">queryItems</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        <span class="comment">//调用service查找数据库，查询商品列表，这里使用静态数据模拟</span></span><br><span class="line">        List&lt;Items&gt; itemsList = <span class="keyword">new</span> ArrayList&lt;Items&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//向list中填充静态数据</span></span><br><span class="line">        Items items_1 = <span class="keyword">new</span> Items();</span><br><span class="line">        items_1.setName(<span class="string">"联想笔记本"</span>);</span><br><span class="line">        items_1.setPrice(<span class="number">6000f</span>);</span><br><span class="line">        items_1.setDetail(<span class="string">"ThinkPad T430 c3 联想笔记本电脑！"</span>);</span><br><span class="line"></span><br><span class="line">        Items items_2 = <span class="keyword">new</span> Items();</span><br><span class="line">        items_2.setName(<span class="string">"苹果手机"</span>);</span><br><span class="line">        items_2.setPrice(<span class="number">5000f</span>);</span><br><span class="line">        items_2.setDetail(<span class="string">"iphone6苹果手机！"</span>);</span><br><span class="line"></span><br><span class="line">        itemsList.add(items_1);</span><br><span class="line">        itemsList.add(items_2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//返回ModelAndView</span></span><br><span class="line">        ModelAndView modelAndView = <span class="keyword">new</span> ModelAndView();</span><br><span class="line">        <span class="comment">//相当于request的setAttribute方法,在jsp页面中通过itemsList取数据</span></span><br><span class="line">        modelAndView.addObject(<span class="string">"itemsList"</span>,itemsList);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//指定视图</span></span><br><span class="line">        modelAndView.setViewName(<span class="string">"/WEB-INF/jsp/items/itemsList.jsp"</span>);</span><br><span class="line">        <span class="keyword">return</span> modelAndView;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="在spring容器中加载Handler"><a href="#在spring容器中加载Handler" class="headerlink" title="在spring容器中加载Handler"></a>在spring容器中加载Handler</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 对于注解的Handler 可以单个配置</span></span><br><span class="line"><span class="comment">    实际开发中加你使用组件扫描</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--  &lt;bean  class="com.iot.ssm.controller.ItemsController3"/&gt; --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 可以扫描controller、service、...</span></span><br><span class="line"><span class="comment">	这里让扫描controller，指定controller的包</span></span><br><span class="line"><span class="comment">	 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.iot.ssm.controller"</span>&gt;</span><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote>
 <ul>
-<li>mybatis和spring整合，通过spring管理mapper接口。</li>
-<li>使用mapper的扫描器自动扫描mapper接口在spring中进行注册。</li>
+<li><a href="http://blog.csdn.net/acmman/article/details/46980427" target="_blank" rel="noopener">SpringMVC框架】注解的处理器映射器和适配器配置</a></li>
 </ul>
-</li>
-<li><p>第二步：整合service层</p>
-<ul>
-<li>通过spring管理service接口。</li>
-<li>使用配置方式将service接口配置在spring配置文件中。</li>
-<li>实现事务控制。</li>
-</ul>
-</li>
-<li><p>第三步：整合springmvc</p>
-<ul>
-<li>由于springmvc是spring的模块，不需要整合。</li>
-</ul>
-</li>
-</ul>
-<h2 id="工程结构"><a href="#工程结构" class="headerlink" title="工程结构"></a>工程结构</h2><p>不同于<a href="http://blog.csdn.net/h3243212/article/details/50778934" target="_blank" rel="noopener">《mybatis学习笔记(17)-spring和mybatis整合》</a>中的示例demo,<strong>本文的整合采用maven构建</strong>。</p>
-<p>如何创建使用maven构建的web应用可以参考前面的一篇<a href="http://blog.csdn.net/h3243212/article/details/50828141#环境搭建" target="_blank" rel="noopener">《springmvc学习笔记(1)-框架原理和入门配置》</a></p>
-<p><code>new-&gt;project-&gt;maven</code>，建一个裸的maven工程，手动建webapp的目录</p>
-<p>在<code>src/main</code>下新建文件夹<code>webapp</code></p>
-<h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><p>pom.xml文件</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.iot.learnssm<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>learnssm-firstssm<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- jar 版本设置 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">spring.version</span>&gt;</span>4.2.4.RELEASE<span class="tag">&lt;/<span class="name">spring.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- spring框架--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-webmvc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-orm<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-aspects<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.38<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.18<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-dbcp<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-dbcp<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- JSP tag --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>taglibs<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>standard<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这里添加的依赖可能有多的,但总比少包好，我开始就是引少了依赖(springframework的依赖只引用了spring-mvc,连spring-core都没引)，导致报错,以后会出一篇博客专门讲这个系列笔记中debug相关问题。</p>
-<h3 id="建包"><a href="#建包" class="headerlink" title="建包"></a>建包</h3><p>在java目录下建各个package,按照maven的命名习惯:</p>
-<p><code>com.公司名.项目名.模块名</code></p>
-<p>这里我的包为：</p>
-<p><code>com.iot.learnssm.firstssm</code></p>
-<p>包含几个子包：</p>
-<ul>
-<li>controller</li>
-<li>mapper</li>
-<li>po</li>
-<li>service<ul>
-<li>impl </li>
-</ul>
-</li>
-</ul>
-<p>项目结构如图：</p>
-<p><img src="http://7xph6d.com1.z0.glb.clouddn.com/springmvc_%E6%95%B4%E5%90%88%E5%B7%A5%E7%A8%8B-1.png" alt="springmvc_整合工程-1"></p>
-<p>后面几篇笔记会依次记录mapper,service,controller各个部分的整合</p>
+</blockquote>
 <hr>
 <blockquote>
 <p>作者<a href="http://brianway.github.io/" target="_blank" rel="noopener">@brianway</a>更多文章：<a href="http://brianway.github.io/" target="_blank" rel="noopener">个人网站</a> <code>|</code> <a href="http://blog.csdn.net/h3243212/" target="_blank" rel="noopener">CSDN</a> <code>|</code> <a href="http://my.oschina.net/brianway" target="_blank" rel="noopener">oschina</a></p>
@@ -228,6 +211,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">springmvc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -241,18 +235,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/01/16/springmvc学习笔记(10)-springmvc注解开发之商品修改功能/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/16/springmvc学习笔记(4)-前端控制器/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          springmvc学习笔记(4)-前端控制器
         
       </div>
     </a>
   
   
-    <a href="/2018/01/16/springmvc学习笔记(7)-springmvc整合mybatis之mapper/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2018/01/16/springmvc学习笔记(2)-非注解的处理器映射器和适配器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">springmvc学习笔记(2)-非注解的处理器映射器和适配器</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -279,7 +273,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#springmvc学习笔记-6-springmvc整合mybatis-IDEA中通过maven构建"><span class="toc-number">1.</span> <span class="toc-text">springmvc学习笔记(6)-springmvc整合mybatis(IDEA中通过maven构建)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#整合思路"><span class="toc-number">1.1.</span> <span class="toc-text">整合思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工程结构"><span class="toc-number">1.2.</span> <span class="toc-text">工程结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加依赖"><span class="toc-number">1.2.1.</span> <span class="toc-text">添加依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建包"><span class="toc-number">1.2.2.</span> <span class="toc-text">建包</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#默认加载"><span class="toc-number">1.</span> <span class="toc-text">默认加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注解的处理器映射器和适配器"><span class="toc-number">2.</span> <span class="toc-text">注解的处理器映射器和适配器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发注解Handler"><span class="toc-number">3.</span> <span class="toc-text">开发注解Handler</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在spring容器中加载Handler"><span class="toc-number">4.</span> <span class="toc-text">在spring容器中加载Handler</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -389,6 +383,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

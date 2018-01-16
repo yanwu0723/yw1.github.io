@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Blog</title>
+  <title>springmvc学习笔记(1)-框架原理和入门配置 | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="springmvc学习笔记(15)-数据回显标签： springmvc  Contents  pojo数据回显方法 简单类型数据回显   本文介绍springmvc中数据回显的几种实现方法 数据回显：提交后，如果出现错误，将刚才提交的数据回显到刚才的提交页面。 pojo数据回显方法1.springmvc默认对pojo数据进行回显。 pojo数据传入controller方法后，springmvc自动">
+  <meta name="description" content="Contents  springmvc框架原理 springmvc入门程序 环境搭建 配置文件 部署调试   参考链接   本文主要介绍springmvc的框架原理，并通过一个入门程序展示环境搭建，配置以及部署调试。 springmvc是spring框架的一个模块，springmvc和spring无需通过中间整合层进行整合。 springmvc框架原理给个官网示意图  组件及其作用  前端控制器(">
+<meta name="keywords" content="springmvc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="http://yoursite.com/2018/01/16/springmvc学习笔记(15)-数据回显/index.html">
+<meta property="og:title" content="springmvc学习笔记(1)-框架原理和入门配置">
+<meta property="og:url" content="http://yoursite.com/2018/01/16/springmvc学习笔记(1)-框架原理和入门配置/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="springmvc学习笔记(15)-数据回显标签： springmvc  Contents  pojo数据回显方法 简单类型数据回显   本文介绍springmvc中数据回显的几种实现方法 数据回显：提交后，如果出现错误，将刚才提交的数据回显到刚才的提交页面。 pojo数据回显方法1.springmvc默认对pojo数据进行回显。 pojo数据传入controller方法后，springmvc自动">
-<meta property="og:updated_time" content="2017-04-21T13:38:25.000Z">
+<meta property="og:description" content="Contents  springmvc框架原理 springmvc入门程序 环境搭建 配置文件 部署调试   参考链接   本文主要介绍springmvc的框架原理，并通过一个入门程序展示环境搭建，配置以及部署调试。 springmvc是spring框架的一个模块，springmvc和spring无需通过中间整合层进行整合。 springmvc框架原理给个官网示意图  组件及其作用  前端控制器(">
+<meta property="og:image" content="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/images/mvc.png">
+<meta property="og:image" content="http://7xph6d.com1.z0.glb.clouddn.com/springmvc_%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg">
+<meta property="og:updated_time" content="2018-01-16T11:19:49.933Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog">
-<meta name="twitter:description" content="springmvc学习笔记(15)-数据回显标签： springmvc  Contents  pojo数据回显方法 简单类型数据回显   本文介绍springmvc中数据回显的几种实现方法 数据回显：提交后，如果出现错误，将刚才提交的数据回显到刚才的提交页面。 pojo数据回显方法1.springmvc默认对pojo数据进行回显。 pojo数据传入controller方法后，springmvc自动">
+<meta name="twitter:title" content="springmvc学习笔记(1)-框架原理和入门配置">
+<meta name="twitter:description" content="Contents  springmvc框架原理 springmvc入门程序 环境搭建 配置文件 部署调试   参考链接   本文主要介绍springmvc的框架原理，并通过一个入门程序展示环境搭建，配置以及部署调试。 springmvc是spring框架的一个模块，springmvc和spring无需通过中间整合层进行整合。 springmvc框架原理给个官网示意图  组件及其作用  前端控制器(">
+<meta name="twitter:image" content="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/images/mvc.png">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
@@ -149,33 +153,130 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-springmvc学习笔记(15)-数据回显" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-springmvc学习笔记(1)-框架原理和入门配置" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      springmvc学习笔记(1)-框架原理和入门配置
+    </h1>
+  
+
+        
+        <a href="/2018/01/16/springmvc学习笔记(1)-框架原理和入门配置/" class="archive-article-date">
+  	<time datetime="2018-01-16T09:38:54.357Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-16</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="springmvc学习笔记-15-数据回显"><a href="#springmvc学习笔记-15-数据回显" class="headerlink" title="springmvc学习笔记(15)-数据回显"></a>springmvc学习笔记(15)-数据回显</h1><p>标签： springmvc</p>
-<hr>
-<p><strong>Contents</strong></p>
+        <p><strong>Contents</strong></p>
 <ul>
-<li><a href="#pojo数据回显方法">pojo数据回显方法</a></li>
-<li><a href="#简单类型数据回显">简单类型数据回显</a></li>
+<li><a href="#springmvc框架原理">springmvc框架原理</a></li>
+<li><a href="#springmvc入门程序">springmvc入门程序</a><ul>
+<li><a href="#环境搭建">环境搭建</a></li>
+<li><a href="#配置文件">配置文件</a></li>
+<li><a href="#部署调试">部署调试</a></li>
+</ul>
+</li>
+<li><a href="#参考链接">参考链接</a></li>
 </ul>
 <hr>
-<p>本文介绍springmvc中数据回显的几种实现方法</p>
-<p>数据回显：提交后，如果出现错误，将刚才提交的数据回显到刚才的提交页面。</p>
-<h2 id="pojo数据回显方法"><a href="#pojo数据回显方法" class="headerlink" title="pojo数据回显方法"></a>pojo数据回显方法</h2><p>1.springmvc默认对pojo数据进行回显。</p>
-<p><strong>pojo数据传入controller方法后，springmvc自动将pojo数据放到request域，key等于pojo类型（首字母小写）</strong></p>
-<p>使用<code>@ModelAttribute</code>指定pojo回显到页面在request中的key</p>
-<p>2.<code>@ModelAttribute</code>还可以将方法的返回值传到页面</p>
-<p>在商品查询列表页面，通过商品类型查询商品信息。在controller中定义商品类型查询方法，最终将商品类型传到页面。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 商品分类</span></span><br><span class="line"><span class="comment">//itemtypes表示最终将方法返回值放在request中的key</span></span><br><span class="line"><span class="meta">@ModelAttribute</span>(<span class="string">"itemtypes"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String, String&gt; <span class="title">getItemTypes</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    Map&lt;String, String&gt; itemTypes = <span class="keyword">new</span> HashMap&lt;String, String&gt;();</span><br><span class="line">    itemTypes.put(<span class="string">"101"</span>, <span class="string">"数码"</span>);</span><br><span class="line">    itemTypes.put(<span class="string">"102"</span>, <span class="string">"母婴"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> itemTypes;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>页面上可以得到itemTypes数据。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;td&gt;</span><br><span class="line">    商品名称：&lt;input name=<span class="string">"itemsCustom.name"</span> /&gt;</span><br><span class="line">    商品类型：</span><br><span class="line">    &lt;select name=<span class="string">"itemtype"</span>&gt;</span><br><span class="line">        &lt;c:forEach items=<span class="string">"$&#123;itemtypes&#125;"</span> var=<span class="string">"itemtype"</span>&gt;</span><br><span class="line">            &lt;option value="$&#123;itemtype.key &#125;"&gt;$&#123;itemtype.value &#125;&lt;/option&gt;</span><br><span class="line">        &lt;/c:forEach&gt;</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line">&lt;/td&gt;</span><br></pre></td></tr></table></figure>
-<p>3.使用最简单方法使用model，可以不用<code>@ModelAttribute</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可以直接使用model将提交pojo回显到页面</span></span><br><span class="line"><span class="comment">//model.addAttribute("items", itemsCustom);</span></span><br></pre></td></tr></table></figure>
-<h2 id="简单类型数据回显"><a href="#简单类型数据回显" class="headerlink" title="简单类型数据回显"></a>简单类型数据回显</h2><p>使用最简单方法使用model</p>
-<p><code>model.addAttribute(&quot;id&quot;, id);</code></p>
+<p>本文主要介绍springmvc的框架原理，并通过一个入门程序展示环境搭建，配置以及部署调试。</p>
+<p>springmvc是spring框架的一个模块，springmvc和spring无需通过中间整合层进行整合。</p>
+<h2 id="springmvc框架原理"><a href="#springmvc框架原理" class="headerlink" title="springmvc框架原理"></a>springmvc框架原理</h2><p>给个官网示意图</p>
+<p><img src="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/images/mvc.png" alt="The request processing workflow in Spring Web MVC"></p>
+<p>组件及其作用</p>
+<ul>
+<li>前端控制器(DispatcherServlet)：接收请求，响应结果，相当于转发器，中央处理器。减少了其他组件之间的耦合度</li>
+<li>处理器映射器(HandlerMapping)：根据请求的url查找Handler</li>
+<li><strong>Handler处理器</strong>：按照HandlerAdapter的要求编写</li>
+<li>处理器适配器(HandlerAdapter)：按照特定规则(HandlerAdapter要求的规则)执行Handler。</li>
+<li>视图解析器(ViewResolver)：进行视图解析，根据逻辑视图解析成真正的视图(View)</li>
+<li><strong>视图(View)</strong>：View是一个接口实现类试吃不同的View类型（jsp,pdf等等）</li>
+</ul>
+<p><em>注：其中加粗的为需要程序员开发的，没加粗的为不需要程序员开发的</em></p>
+<p>文末参考链接中《跟开涛学SpringMVC》里面有张图挺好的，感觉很详细.</p>
+<p><img src="http://7xph6d.com1.z0.glb.clouddn.com/springmvc_%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg" alt="springmvc_核心架构图"></p>
+<p>步骤：</p>
+<ul>
+<li>1.发起请求到前端控制器(<code>DispatcherServlet</code>)</li>
+<li>2.前端控制器请求处理器映射器(<code>HandlerMapping</code>)查找<code>Handler</code>(可根据xml配置、注解进行查找)</li>
+<li>3.处理器映射器(<code>HandlerMapping</code>)向前端控制器返回<code>Handler</code></li>
+<li>4.前端控制器调用处理器适配器(<code>HandlerAdapter</code>)执行<code>Handler</code></li>
+<li>5.处理器适配器(HandlerAdapter)去执行Handler</li>
+<li>6.Handler执行完，给适配器返回ModelAndView(Springmvc框架的一个底层对象)</li>
+<li>7.处理器适配器(<code>HandlerAdapter</code>)向前端控制器返回<code>ModelAndView</code></li>
+<li>8.前端控制器(<code>DispatcherServlet</code>)请求视图解析器(<code>ViewResolver</code>)进行视图解析，根据逻辑视图名解析成真正的视图(jsp)</li>
+<li>9.视图解析器(ViewResolver)向前端控制器(<code>DispatcherServlet</code>)返回View</li>
+<li>10.前端控制器进行视图渲染，即将模型数据(在<code>ModelAndView</code>对象中)填充到request域</li>
+<li>11.前端控制器向用户响应结果</li>
+</ul>
+<h2 id="springmvc入门程序"><a href="#springmvc入门程序" class="headerlink" title="springmvc入门程序"></a>springmvc入门程序</h2><p>一个展示商品列表的小页面</p>
+<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>intellij IDEA 15.0.2</p>
+<ul>
+<li>A方法(有待商榷)</li>
+</ul>
+<p><code>new-&gt;project-&gt;maven-&gt;勾选create from archetype-&gt;选中webapp</code> </p>
+<p>在<code>src/main</code>下新建<code>java</code>文件夹，标记为<code>Sources Root</code></p>
+<p>这样建出来的工程感觉有问题，点开一些xml文件一片红，心里不是很踏实，所以放弃这个方法了</p>
+<ul>
+<li>B方法</li>
+</ul>
+<p><code>new-&gt;project-&gt;maven</code>，建一个裸的maven工程，手动建webapp的目录</p>
+<p>在<code>src/main</code>下新建文件夹<code>webapp</code></p>
+<p>pom.xml文件</p>
+<p>添加依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-webmvc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.2.4.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>加上下面的标签会生成Artifacts</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>build标签的finalName要和Artifacts的output directory一致</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">finalName</span>&gt;</span>springmvc-2nd-1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">finalName</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><ul>
+<li>配置前端控制器</li>
+</ul>
+<p>web.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- contextConfigLocation配置springmvc加载的配置文件(配置处理器映射器、适配器等等)</span></span><br><span class="line"><span class="comment">      若不配置，默认加载WEB-INF/servlet名称-servlet(springmvc-servlet.xml)</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springmvc.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    第一种:*.action,访问以.action结尾，由DispatcherServlet进行解析</span></span><br><span class="line"><span class="comment">    第二种:/,所有访问的地址由DispatcherServlet进行解析，对静态文件的解析需要配置不让DispatcherServlet进行解析，</span></span><br><span class="line"><span class="comment">            使用此种方式和实现RESTful风格的url</span></span><br><span class="line"><span class="comment">    第三种:/*,这样配置不对，使用这种配置，最终要转发到一个jsp页面时，仍然会由DispatcherServlet解析jsp地址，</span></span><br><span class="line"><span class="comment">            不能根据jsp页面找到handler，会报错</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>*.action<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置Handler</li>
+</ul>
+<p>将编写Handler在spring容器加载</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置Handler --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">"/queryItems.action"</span> <span class="attr">class</span>=<span class="string">"com.iot.ssm.controller.ItemsController"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置处理器映射器</li>
+</ul>
+<p>在classpath下的springmvc.xml中配置处理器映射器</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 处理器映射器</span></span><br><span class="line"><span class="comment">    将bean的name作为url进行查找，需要在配置Handler时指定beanname(就是url)</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置处理器适配器</li>
+</ul>
+<p>所有处理器适配器都实现了<code>HandlerAdapter</code>接口</p>
+<p><code>&lt;bean class=&quot;org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter&quot;&gt;</code></p>
+<p>源码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">supports</span><span class="params">(Object handler)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> handler <span class="keyword">instanceof</span> Controller;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此适配器能执行实现<code>Controller</code>接口的Handler</p>
+<ul>
+<li>配置视图解析器</li>
+</ul>
+<p>需要配置解析jsp的视图解析器</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 视图解析器</span></span><br><span class="line"><span class="comment">   解析jsp,默认使用jstl,classpath下要有jstl的包</span></span><br><span class="line"><span class="comment">   --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在springmvc.xml中视图解析器配置前缀和后缀：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 配置jsp路径的前缀 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prefix"</span> <span class="attr">value</span>=<span class="string">"/WEB-INF/jsp/"</span>/&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 配置jsp路径的后缀 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suffix"</span> <span class="attr">value</span>=<span class="string">".jsp"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>程序中不用指定前缀和后缀：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//指定视图</span></span><br><span class="line"><span class="comment">//下边的路径，如果在视图解析器中配置jsp的路径前缀和后缀，修改为items/itemsList</span></span><br><span class="line"><span class="comment">//modelAndView.setViewName("/WEB-INF/jsp/items/itemsList.jsp");</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//下边的路径配置就可以不在程序中指定jsp路径的前缀和后缀</span></span><br><span class="line">modelAndView.setViewName(<span class="string">"items/itemsList"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="部署调试"><a href="#部署调试" class="headerlink" title="部署调试"></a>部署调试</h3><p><code>HTTP Status 404 -</code><br>处理器映射器根据url找不到Handler,说明url错误</p>
+<p><code>HTTP Status 404 -/springmvc/WEB-INF/jsp/items/itemsLists.jsp</code><br>处理器映射器根据url找到了Handler，转发的jsp页面找不到</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
+<ul>
+<li><a href="http://sishuok.com/forum/blogPost/list/5160.html" target="_blank" rel="noopener">第二章 Spring MVC入门 —— 跟开涛学SpringMVC</a></li>
+<li><a href="http://www.tutorialspoint.com/spring/spring_web_mvc_framework.htm" target="_blank" rel="noopener">Spring MVC Framework Tutorial - TutorialsPoint</a></li>
+<li><a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html" target="_blank" rel="noopener">Web MVC framework</a></li>
+</ul>
+</blockquote>
 <hr>
 <blockquote>
 <p>作者<a href="http://brianway.github.io/" target="_blank" rel="noopener">@brianway</a>更多文章：<a href="http://brianway.github.io/" target="_blank" rel="noopener">个人网站</a> <code>|</code> <a href="http://blog.csdn.net/h3243212/" target="_blank" rel="noopener">CSDN</a> <code>|</code> <a href="http://my.oschina.net/brianway" target="_blank" rel="noopener">oschina</a></p>
@@ -188,6 +289,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">springmvc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -201,20 +313,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/01/16/springmvc学习笔记(16)-异常处理器/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/16/springmvc学习笔记(2)-非注解的处理器映射器和适配器/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          springmvc学习笔记(2)-非注解的处理器映射器和适配器
         
       </div>
     </a>
   
-  
-    <a href="/2018/01/16/springmvc学习笔记(14)-springmvc校验/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
@@ -239,7 +346,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#springmvc学习笔记-15-数据回显"><span class="toc-number">1.</span> <span class="toc-text">springmvc学习笔记(15)-数据回显</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pojo数据回显方法"><span class="toc-number">1.1.</span> <span class="toc-text">pojo数据回显方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简单类型数据回显"><span class="toc-number">1.2.</span> <span class="toc-text">简单类型数据回显</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#springmvc框架原理"><span class="toc-number">1.</span> <span class="toc-text">springmvc框架原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#springmvc入门程序"><span class="toc-number">2.</span> <span class="toc-text">springmvc入门程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境搭建"><span class="toc-number">2.1.</span> <span class="toc-text">环境搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件"><span class="toc-number">2.2.</span> <span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署调试"><span class="toc-number">2.3.</span> <span class="toc-text">部署调试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -349,6 +456,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

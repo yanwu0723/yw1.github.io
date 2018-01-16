@@ -6,23 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Blog</title>
+  <title>springmvc学习笔记(4)-前端控制器 | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="springmvc学习笔记(18)-json数据交互标签： springmvc  Contents  springmvc进行json交互 环境准备 添加json转换的依赖 配置json转换器   json交互测试 输入json串，输出是json串 输入key/value，输出是json串     本文主要介绍如何在springmvc中进行json数据的交互，先是环境准备和配置，然后分别展示了“输入">
+  <meta name="description" content="Contents  本文通过前端控制器源码分析springmvc执行过程 1.前端控制器接收请求 调用doDispatch方法 1234567protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;		HttpServletRequest p">
+<meta name="keywords" content="springmvc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="http://yoursite.com/2018/01/16/springmvc学习笔记(18)-json数据交互/index.html">
+<meta property="og:title" content="springmvc学习笔记(4)-前端控制器">
+<meta property="og:url" content="http://yoursite.com/2018/01/16/springmvc学习笔记(4)-前端控制器/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="springmvc学习笔记(18)-json数据交互标签： springmvc  Contents  springmvc进行json交互 环境准备 添加json转换的依赖 配置json转换器   json交互测试 输入json串，输出是json串 输入key/value，输出是json串     本文主要介绍如何在springmvc中进行json数据的交互，先是环境准备和配置，然后分别展示了“输入">
-<meta property="og:image" content="http://7xph6d.com1.z0.glb.clouddn.com/springmvc_json%E4%BA%A4%E4%BA%92.png">
-<meta property="og:image" content="http://7xph6d.com1.z0.glb.clouddn.com/springmvc_json-request-json-1.png">
-<meta property="og:image" content="http://7xph6d.com1.z0.glb.clouddn.com/springmvc_json-request-json-2.png">
-<meta property="og:image" content="http://7xph6d.com1.z0.glb.clouddn.com/springmvc_json-request-keyvalue-1.png">
-<meta property="og:updated_time" content="2017-04-21T13:38:25.000Z">
+<meta property="og:description" content="Contents  本文通过前端控制器源码分析springmvc执行过程 1.前端控制器接收请求 调用doDispatch方法 1234567protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;		HttpServletRequest p">
+<meta property="og:updated_time" content="2018-01-16T11:20:20.122Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog">
-<meta name="twitter:description" content="springmvc学习笔记(18)-json数据交互标签： springmvc  Contents  springmvc进行json交互 环境准备 添加json转换的依赖 配置json转换器   json交互测试 输入json串，输出是json串 输入key/value，输出是json串     本文主要介绍如何在springmvc中进行json数据的交互，先是环境准备和配置，然后分别展示了“输入">
-<meta name="twitter:image" content="http://7xph6d.com1.z0.glb.clouddn.com/springmvc_json%E4%BA%A4%E4%BA%92.png">
+<meta name="twitter:title" content="springmvc学习笔记(4)-前端控制器">
+<meta name="twitter:description" content="Contents  本文通过前端控制器源码分析springmvc执行过程 1.前端控制器接收请求 调用doDispatch方法 1234567protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;		HttpServletRequest p">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
@@ -154,84 +150,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-springmvc学习笔记(18)-json数据交互" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-springmvc学习笔记(4)-前端控制器" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      springmvc学习笔记(4)-前端控制器
+    </h1>
+  
+
+        
+        <a href="/2018/01/16/springmvc学习笔记(4)-前端控制器/" class="archive-article-date">
+  	<time datetime="2018-01-16T09:38:54.477Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-16</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="springmvc学习笔记-18-json数据交互"><a href="#springmvc学习笔记-18-json数据交互" class="headerlink" title="springmvc学习笔记(18)-json数据交互"></a>springmvc学习笔记(18)-json数据交互</h1><p>标签： springmvc</p>
+        <p><strong>Contents</strong></p>
 <hr>
-<p><strong>Contents</strong></p>
-<ul>
-<li><a href="#springmvc进行json交互">springmvc进行json交互</a></li>
-<li><a href="#环境准备">环境准备</a><ul>
-<li><a href="#添加json转换的依赖">添加json转换的依赖</a></li>
-<li><a href="#配置json转换器">配置json转换器</a></li>
-</ul>
-</li>
-<li><a href="#json交互测试">json交互测试</a><ul>
-<li><a href="#输入json串，输出是json串">输入json串，输出是json串</a></li>
-<li><a href="#输入keyvalue，输出是json串">输入key/value，输出是json串</a></li>
-</ul>
-</li>
-</ul>
-<hr>
-<p>本文主要介绍如何在springmvc中进行json数据的交互，先是环境准备和配置，然后分别展示了“输入json串，输出是json串”和“输入key/value，输出是json串”两种情况下的交互</p>
-<h2 id="springmvc进行json交互"><a href="#springmvc进行json交互" class="headerlink" title="springmvc进行json交互"></a>springmvc进行json交互</h2><p>json数据格式在接口调用中、html页面中较常用，json格式比较简单，解析还比较方便。</p>
-<p>比如：webservice接口，传输json数据.</p>
-<p><img src="http://7xph6d.com1.z0.glb.clouddn.com/springmvc_json%E4%BA%A4%E4%BA%92.png" alt="json交互"></p>
-<ul>
-<li>请求json、输出json，要求请求的是json串，所以在前端页面中需要将请求的内容转成json，不太方便。</li>
-<li>请求key/value、输出json。此方法比较常用。</li>
-</ul>
-<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><h3 id="添加json转换的依赖"><a href="#添加json转换的依赖" class="headerlink" title="添加json转换的依赖"></a>添加json转换的依赖</h3><p>最开始我少了<code>jackson-databind</code>依赖，程序各种报错。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- json 转换--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-databind<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.codehaus.jackson<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-mapper-asl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.9.13<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>查看依赖树</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[INFO] +- com.fasterxml.jackson.core:jackson-databind:jar:2.7.2:compile</span><br><span class="line">[INFO] |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.7.0:compile</span><br><span class="line">[INFO] |  \- com.fasterxml.jackson.core:jackson-core:jar:2.7.2:compile</span><br><span class="line">[INFO] \- org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13:compile</span><br><span class="line">[INFO]    \- org.codehaus.jackson:jackson-core-asl:jar:1.9.13:compile</span><br></pre></td></tr></table></figure>
-<h3 id="配置json转换器"><a href="#配置json转换器" class="headerlink" title="配置json转换器"></a>配置json转换器</h3><p>在注解适配器中加入<code>messageConverters</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">&lt;!--注解适配器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"messageConverters"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>注意：如果使用<code>&lt;mvc:annotation-driven /&gt;</code>则不用定义上边的内容。</strong></p>
-<h2 id="json交互测试"><a href="#json交互测试" class="headerlink" title="json交互测试"></a>json交互测试</h2><p>显示两个按钮分别测试</p>
-<ul>
-<li>jsp页面</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--</span><br><span class="line">  Created by IntelliJ IDEA.</span><br><span class="line">  User: brian</span><br><span class="line">  Date: <span class="number">2016</span>/<span class="number">3</span>/<span class="number">7</span></span><br><span class="line">  Time: <span class="number">20</span>:<span class="number">49</span></span><br><span class="line">  To change <span class="keyword">this</span> template use File | Settings | File Templates.</span><br><span class="line">--%&gt;</span><br><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;json交互测试&lt;/title&gt;</span><br><span class="line">    &lt;script type="text/javascript" src="$&#123;pageContext.request.contextPath &#125;/js/jquery-1.4.4.min.js"&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">        <span class="comment">//请求json，输出是json</span></span><br><span class="line">        <span class="function">function <span class="title">requestJson</span><span class="params">()</span></span>&#123;     省略    &#125;</span><br><span class="line">        <span class="comment">//请求key/value，输出是json</span></span><br><span class="line">        <span class="function">function <span class="title">responseJson</span><span class="params">()</span></span>&#123;    省略    &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;input type=<span class="string">"button"</span> onclick=<span class="string">"requestJson()"</span> value=<span class="string">"请求json，输出是json"</span>/&gt;</span><br><span class="line">&lt;input type=<span class="string">"button"</span> onclick=<span class="string">"responseJson()"</span> value=<span class="string">"请求key/value，输出是json"</span>/&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>controller</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JsonTest</span> </span>&#123;</span><br><span class="line">    省略</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>测试结果</li>
-</ul>
-<h3 id="输入json串，输出是json串"><a href="#输入json串，输出是json串" class="headerlink" title="输入json串，输出是json串"></a>输入json串，输出是json串</h3><p>使用jquery的ajax提交json串，对输出的json结果进行解析。</p>
-<ul>
-<li>jsp页面</li>
-</ul>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//请求json，输出是json</span></span><br><span class="line"><span class="function">function <span class="title">requestJson</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        type:<span class="string">'post'</span>,</span><br><span class="line">        url:<span class="string">'$&#123;pageContext.request.contextPath &#125;/requestJson.action'</span>,</span><br><span class="line">        contentType:<span class="string">'application/json;charset=utf-8'</span>,</span><br><span class="line">        <span class="comment">//数据格式是json串，商品信息</span></span><br><span class="line">        data:<span class="string">'&#123;"name":"手机","price":999&#125;'</span>,</span><br><span class="line">        success:function(data)&#123;<span class="comment">//返回json结果</span></span><br><span class="line">            alert(data);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>controller</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//请求json串(商品信息)，输出json(商品信息)</span></span><br><span class="line"><span class="comment">//@RequestBody将请求的商品信息的json串转成itemsCustom对象</span></span><br><span class="line"><span class="comment">//@ResponseBody将itemsCustom转成json输出</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/requestJson"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@ResponseBody</span> <span class="function">ItemsCustom <span class="title">requestJson</span><span class="params">(@RequestBody ItemsCustom itemsCustom)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//@ResponseBody将itemsCustom转成json输出</span></span><br><span class="line">    <span class="keyword">return</span> itemsCustom;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>测试结果</li>
-</ul>
-<p><img src="http://7xph6d.com1.z0.glb.clouddn.com/springmvc_json-request-json-1.png" alt="请求json，返回json"></p>
-<p>可以看到，request和response的HTTP头的Content-Type都是<code>application/json;charset=utf-8</code></p>
-<p><img src="http://7xph6d.com1.z0.glb.clouddn.com/springmvc_json-request-json-2.png" alt="请求json，返回json,response的body"></p>
-<h3 id="输入key-value，输出是json串"><a href="#输入key-value，输出是json串" class="headerlink" title="输入key/value，输出是json串"></a>输入key/value，输出是json串</h3><p>使用jquery的ajax提交key/value串，对输出的json结果进行解析</p>
-<ul>
-<li>jsp页面</li>
-</ul>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//请求key/value，输出是json</span></span><br><span class="line"><span class="function">function <span class="title">responseJson</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        type:<span class="string">'post'</span>,</span><br><span class="line">        url:<span class="string">'$&#123;pageContext.request.contextPath &#125;/responseJson.action'</span>,</span><br><span class="line">        <span class="comment">//请求是key/value这里不需要指定contentType，因为默认就 是key/value类型</span></span><br><span class="line">        <span class="comment">//contentType:'application/json;charset=utf-8',</span></span><br><span class="line">        <span class="comment">//数据格式是json串，商品信息</span></span><br><span class="line">        data:<span class="string">'name=手机&amp;price=999'</span>,</span><br><span class="line">        success:function(data)&#123;<span class="comment">//返回json结果</span></span><br><span class="line">            alert(data.name);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>controller</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//请求key/value，输出json</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/responseJson"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@ResponseBody</span> <span class="function">ItemsCustom <span class="title">responseJson</span><span class="params">(ItemsCustom itemsCustom)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//@ResponseBody将itemsCustom转成json输出</span></span><br><span class="line">    <span class="keyword">return</span> itemsCustom;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>测试结果</li>
-</ul>
-<p><img src="http://7xph6d.com1.z0.glb.clouddn.com/springmvc_json-request-keyvalue-1.png" alt="请求key/value,返回json"></p>
-<p>可以看到，key/value键值对的默认Content-Type是<code>application/x-www-form-urlencoded</code>,同时，我们收到了响应“手机”</p>
+<p>本文通过前端控制器源码分析springmvc执行过程</p>
+<p>1.前端控制器接收请求</p>
+<p>调用<code>doDispatch</code>方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doDispatch</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		HttpServletRequest processedRequest = request;</span><br><span class="line">		HandlerExecutionChain mappedHandler = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">boolean</span> multipartRequestParsed = <span class="keyword">false</span>;</span><br><span class="line">    </span><br><span class="line">         。。。。。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.前端控制器调用<code>HandlerMapping</code>（处理器映射器）根据url查找Handler</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Determine handler for the current request.</span></span><br><span class="line">mappedHandler = getHandler(processedRequest);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * Return the HandlerExecutionChain for this request.</span></span><br><span class="line"><span class="comment">	 * &lt;p&gt;Tries all handler mappings in order.</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> request current HTTP request</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> the HandlerExecutionChain, or &#123;<span class="doctag">@code</span> null&#125; if no handler could be found</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> HandlerExecutionChain <span class="title">getHandler</span><span class="params">(HttpServletRequest request)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (HandlerMapping hm : <span class="keyword">this</span>.handlerMappings) &#123;</span><br><span class="line">			<span class="keyword">if</span> (logger.isTraceEnabled()) &#123;</span><br><span class="line">				logger.trace(</span><br><span class="line">						<span class="string">"Testing handler map ["</span> + hm + <span class="string">"] in DispatcherServlet with name '"</span> + getServletName() + <span class="string">"'"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			HandlerExecutionChain handler = hm.getHandler(request);</span><br><span class="line">			<span class="keyword">if</span> (handler != <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">return</span> handler;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>3.调用处理器适配器执行Handler,得到执行的结果<code>ModelAndView mv</code></p>
+<p>在<code>doDispatch</code>方法中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Actually invoke the handler.</span></span><br><span class="line">mv = ha.handle(processedRequest, response, mappedHandler.getHandler());</span><br></pre></td></tr></table></figure>
+<p>4.视图渲染，将model数据填充到request域</p>
+<p><code>doDispatch</code>-&gt;<code>processDispatchResult</code>-&gt;<code>render</code></p>
+<p>在<code>render</code>方法中,视图解析得到view</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// We need to resolve the view name.</span></span><br><span class="line">view = resolveViewName(mv.getViewName(), mv.getModelInternal(), locale, request);</span><br></pre></td></tr></table></figure>
+<p>调用view的渲染方法，将model数据填充到request域</p>
+<p>在<code>render</code>方法中,调用<code>View</code>接口的<code>render</code>方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">view.render(mv.getModelInternal(), request, response);</span><br></pre></td></tr></table></figure>
+<p>程序我也没细读，感觉分析比较浅，很多还没弄懂，等我系统阅读源码后会整理一篇好点的。</p>
 <hr>
 <blockquote>
 <p>作者<a href="http://brianway.github.io/" target="_blank" rel="noopener">@brianway</a>更多文章：<a href="http://brianway.github.io/" target="_blank" rel="noopener">个人网站</a> <code>|</code> <a href="http://blog.csdn.net/h3243212/" target="_blank" rel="noopener">CSDN</a> <code>|</code> <a href="http://my.oschina.net/brianway" target="_blank" rel="noopener">oschina</a></p>
@@ -244,6 +202,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">springmvc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -257,18 +226,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/01/16/springmvc学习笔记(19)-RESTful支持/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/01/16/springmvc学习笔记(17)-上传图片/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2018/01/16/springmvc学习笔记(3)-注解的处理器映射器和适配器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">springmvc学习笔记(3)-注解的处理器映射器和适配器</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -295,7 +255,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#springmvc学习笔记-18-json数据交互"><span class="toc-number">1.</span> <span class="toc-text">springmvc学习笔记(18)-json数据交互</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#springmvc进行json交互"><span class="toc-number">1.1.</span> <span class="toc-text">springmvc进行json交互</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境准备"><span class="toc-number">1.2.</span> <span class="toc-text">环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加json转换的依赖"><span class="toc-number">1.2.1.</span> <span class="toc-text">添加json转换的依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置json转换器"><span class="toc-number">1.2.2.</span> <span class="toc-text">配置json转换器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#json交互测试"><span class="toc-number">1.3.</span> <span class="toc-text">json交互测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#输入json串，输出是json串"><span class="toc-number">1.3.1.</span> <span class="toc-text">输入json串，输出是json串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入key-value，输出是json串"><span class="toc-number">1.3.2.</span> <span class="toc-text">输入key/value，输出是json串</span></a></li></ol></li></ol></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -405,6 +365,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
