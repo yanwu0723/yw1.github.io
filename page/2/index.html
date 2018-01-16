@@ -147,89 +147,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-springmvc学习笔记(12)-springmvc注解开发之包装类型参数绑定" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="springmvc学习笔记-12-springmvc注解开发之包装类型参数绑定"><a href="#springmvc学习笔记-12-springmvc注解开发之包装类型参数绑定" class="headerlink" title="springmvc学习笔记(12)-springmvc注解开发之包装类型参数绑定"></a>springmvc学习笔记(12)-springmvc注解开发之包装类型参数绑定</h1><p>标签： springmvc</p>
-<hr>
-<p><strong>Contents</strong></p>
-<ul>
-<li><a href="#需求">需求</a></li>
-<li><a href="#实现方法">实现方法</a></li>
-<li><a href="#页面参数和controller方法形参定义">页面参数和controller方法形参定义</a></li>
-</ul>
-<hr>
-<p>本文主要介绍注解开发的介绍包装类型的参数绑定</p>
-<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>商品查询controller方法中实现商品查询条件传入。</p>
-<h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><ul>
-<li>第一种方法：在形参中添加<code>HttpServletRequest request</code>参数，通过request接收查询条件参数。</li>
-<li>第二种方法：在形参中让包装类型的pojo接收查询条件参数。</li>
-</ul>
-<p>分析：</p>
-<p>页面传参数的特点：复杂，多样性。条件包括：用户账号、商品编号、订单信息。。。</p>
-<p>如果将用户账号、商品编号、订单信息等放在简单pojo（属性是简单类型）中，pojo类属性比较多，比较乱。建议使用包装类型的pojo，pojo中属性是pojo。</p>
-<h2 id="页面参数和controller方法形参定义"><a href="#页面参数和controller方法形参定义" class="headerlink" title="页面参数和controller方法形参定义"></a>页面参数和controller方法形参定义</h2><ul>
-<li>页面参数：</li>
-</ul>
-<p>商品名称：<code>&lt;input name=&quot;itemsCustom.name&quot; /&gt;</code></p>
-<p><strong>注意：itemsCustom和包装pojo中的属性名一致即可。</strong></p>
-<ul>
-<li>controller方法形参：</li>
-</ul>
-<p><code>public ModelAndView queryItems(HttpServletRequest request, ItemsQueryVo itemsQueryVo) throws Exception</code></p>
-<ul>
-<li>包装类ItemsQueryVo中部分属性：</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemsQueryVo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//商品信息</span></span><br><span class="line">    <span class="keyword">private</span> Items items;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//为了系统 可扩展性，对原始生成的po进行扩展</span></span><br><span class="line">    <span class="keyword">private</span> ItemsCustom itemsCustom;</span><br></pre></td></tr></table></figure>
-<p>可见，<code>ItemsQueryVo</code>中属性<code>itemsCustom</code>和页面参数中一致</p>
-<hr>
-<blockquote>
-<p>作者<a href="http://brianway.github.io/" target="_blank" rel="noopener">@brianway</a>更多文章：<a href="http://brianway.github.io/" target="_blank" rel="noopener">个人网站</a> <code>|</code> <a href="http://blog.csdn.net/h3243212/" target="_blank" rel="noopener">CSDN</a> <code>|</code> <a href="http://my.oschina.net/brianway" target="_blank" rel="noopener">oschina</a></p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/16/springmvc学习笔记(12)-springmvc注解开发之包装类型参数绑定/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-springmvc学习笔记(11)-springmvc注解开发之简单参数绑定" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -308,6 +225,89 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/01/16/springmvc学习笔记(11)-springmvc注解开发之简单参数绑定/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-springmvc学习笔记(12)-springmvc注解开发之包装类型参数绑定" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="springmvc学习笔记-12-springmvc注解开发之包装类型参数绑定"><a href="#springmvc学习笔记-12-springmvc注解开发之包装类型参数绑定" class="headerlink" title="springmvc学习笔记(12)-springmvc注解开发之包装类型参数绑定"></a>springmvc学习笔记(12)-springmvc注解开发之包装类型参数绑定</h1><p>标签： springmvc</p>
+<hr>
+<p><strong>Contents</strong></p>
+<ul>
+<li><a href="#需求">需求</a></li>
+<li><a href="#实现方法">实现方法</a></li>
+<li><a href="#页面参数和controller方法形参定义">页面参数和controller方法形参定义</a></li>
+</ul>
+<hr>
+<p>本文主要介绍注解开发的介绍包装类型的参数绑定</p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>商品查询controller方法中实现商品查询条件传入。</p>
+<h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><ul>
+<li>第一种方法：在形参中添加<code>HttpServletRequest request</code>参数，通过request接收查询条件参数。</li>
+<li>第二种方法：在形参中让包装类型的pojo接收查询条件参数。</li>
+</ul>
+<p>分析：</p>
+<p>页面传参数的特点：复杂，多样性。条件包括：用户账号、商品编号、订单信息。。。</p>
+<p>如果将用户账号、商品编号、订单信息等放在简单pojo（属性是简单类型）中，pojo类属性比较多，比较乱。建议使用包装类型的pojo，pojo中属性是pojo。</p>
+<h2 id="页面参数和controller方法形参定义"><a href="#页面参数和controller方法形参定义" class="headerlink" title="页面参数和controller方法形参定义"></a>页面参数和controller方法形参定义</h2><ul>
+<li>页面参数：</li>
+</ul>
+<p>商品名称：<code>&lt;input name=&quot;itemsCustom.name&quot; /&gt;</code></p>
+<p><strong>注意：itemsCustom和包装pojo中的属性名一致即可。</strong></p>
+<ul>
+<li>controller方法形参：</li>
+</ul>
+<p><code>public ModelAndView queryItems(HttpServletRequest request, ItemsQueryVo itemsQueryVo) throws Exception</code></p>
+<ul>
+<li>包装类ItemsQueryVo中部分属性：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemsQueryVo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//商品信息</span></span><br><span class="line">    <span class="keyword">private</span> Items items;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//为了系统 可扩展性，对原始生成的po进行扩展</span></span><br><span class="line">    <span class="keyword">private</span> ItemsCustom itemsCustom;</span><br></pre></td></tr></table></figure>
+<p>可见，<code>ItemsQueryVo</code>中属性<code>itemsCustom</code>和页面参数中一致</p>
+<hr>
+<blockquote>
+<p>作者<a href="http://brianway.github.io/" target="_blank" rel="noopener">@brianway</a>更多文章：<a href="http://brianway.github.io/" target="_blank" rel="noopener">个人网站</a> <code>|</code> <a href="http://blog.csdn.net/h3243212/" target="_blank" rel="noopener">CSDN</a> <code>|</code> <a href="http://my.oschina.net/brianway" target="_blank" rel="noopener">oschina</a></p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/16/springmvc学习笔记(12)-springmvc注解开发之包装类型参数绑定/">展开全文 >></a>
         </p>
       
 
