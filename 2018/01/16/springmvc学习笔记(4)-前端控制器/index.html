@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/16/springmvc学习笔记(4)-前端控制器/index.html">
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="Contents  本文通过前端控制器源码分析springmvc执行过程 1.前端控制器接收请求 调用doDispatch方法 1234567protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;		HttpServletRequest p">
-<meta property="og:updated_time" content="2018-01-16T11:20:20.122Z">
+<meta property="og:updated_time" content="2018-01-16T11:26:54.737Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springmvc学习笔记(4)-前端控制器">
 <meta name="twitter:description" content="Contents  本文通过前端控制器源码分析springmvc执行过程 1.前端控制器接收请求 调用doDispatch方法 1234567protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception &amp;#123;		HttpServletRequest p">
@@ -190,9 +190,8 @@
 <p>在<code>render</code>方法中,调用<code>View</code>接口的<code>render</code>方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">view.render(mv.getModelInternal(), request, response);</span><br></pre></td></tr></table></figure>
 <p>程序我也没细读，感觉分析比较浅，很多还没弄懂，等我系统阅读源码后会整理一篇好点的。</p>
-<hr>
 <blockquote>
-<p>作者<a href="http://brianway.github.io/" target="_blank" rel="noopener">@brianway</a>更多文章：<a href="http://brianway.github.io/" target="_blank" rel="noopener">个人网站</a> <code>|</code> <a href="http://blog.csdn.net/h3243212/" target="_blank" rel="noopener">CSDN</a> <code>|</code> <a href="http://my.oschina.net/brianway" target="_blank" rel="noopener">oschina</a></p>
+<p>转载(<a href="http://brianway.github.io/" target="_blank" rel="noopener">http://brianway.github.io/</a>)</p>
 </blockquote>
 
       

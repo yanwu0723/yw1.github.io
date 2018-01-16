@@ -187,9 +187,8 @@
 <p>在<code>render</code>方法中,调用<code>View</code>接口的<code>render</code>方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">view.render(mv.getModelInternal(), request, response);</span><br></pre></td></tr></table></figure>
 <p>程序我也没细读，感觉分析比较浅，很多还没弄懂，等我系统阅读源码后会整理一篇好点的。</p>
-<hr>
 <blockquote>
-<p>作者<a href="http://brianway.github.io/" target="_blank" rel="noopener">@brianway</a>更多文章：<a href="http://brianway.github.io/" target="_blank" rel="noopener">个人网站</a> <code>|</code> <a href="http://blog.csdn.net/h3243212/" target="_blank" rel="noopener">CSDN</a> <code>|</code> <a href="http://my.oschina.net/brianway" target="_blank" rel="noopener">oschina</a></p>
+<p>转载(<a href="http://brianway.github.io/" target="_blank" rel="noopener">http://brianway.github.io/</a>)</p>
 </blockquote>
 
       
@@ -292,10 +291,7 @@
 <ul>
 <li><a href="http://blog.csdn.net/acmman/article/details/46980427" target="_blank" rel="noopener">SpringMVC框架】注解的处理器映射器和适配器配置</a></li>
 </ul>
-</blockquote>
-<hr>
-<blockquote>
-<p>作者<a href="http://brianway.github.io/" target="_blank" rel="noopener">@brianway</a>更多文章：<a href="http://brianway.github.io/" target="_blank" rel="noopener">个人网站</a> <code>|</code> <a href="http://blog.csdn.net/h3243212/" target="_blank" rel="noopener">CSDN</a> <code>|</code> <a href="http://my.oschina.net/brianway" target="_blank" rel="noopener">oschina</a></p>
+<p>转载(<a href="http://brianway.github.io/" target="_blank" rel="noopener">http://brianway.github.io/</a>)</p>
 </blockquote>
 
       
@@ -386,9 +382,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.iot.ssm.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.iot.ssm.po.Items;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.HttpRequestHandler;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by brian on 2016/2/19.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemsController2</span> <span class="keyword">implements</span> <span class="title">HttpRequestHandler</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleRequest</span><span class="params">(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">//调用service查找数据库，查询商品列表，这里使用静态数据模拟</span></span><br><span class="line">        List&lt;Items&gt; itemsList = <span class="keyword">new</span> ArrayList&lt;Items&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//向list中填充静态数据</span></span><br><span class="line">        Items items_1 = <span class="keyword">new</span> Items();</span><br><span class="line">        items_1.setName(<span class="string">"联想笔记本"</span>);</span><br><span class="line">        items_1.setPrice(<span class="number">6000f</span>);</span><br><span class="line">        items_1.setDetail(<span class="string">"ThinkPad T430 联想笔记本电脑！"</span>);</span><br><span class="line"></span><br><span class="line">        Items items_2 = <span class="keyword">new</span> Items();</span><br><span class="line">        items_2.setName(<span class="string">"苹果手机"</span>);</span><br><span class="line">        items_2.setPrice(<span class="number">5000f</span>);</span><br><span class="line">        items_2.setDetail(<span class="string">"iphone6苹果手机！"</span>);</span><br><span class="line"></span><br><span class="line">        itemsList.add(items_1);</span><br><span class="line">        itemsList.add(items_2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置模型数据</span></span><br><span class="line">        httpServletRequest.setAttribute(<span class="string">"itemsList"</span>,itemsList);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置转发的视图</span></span><br><span class="line">        httpServletRequest.getRequestDispatcher(<span class="string">"/WEB-INF/jsp/items/itemsList.jsp"</span>).forward(httpServletRequest,httpServletResponse);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>HttpRequestHandler</code>适配器的<code>handleRequest</code>方法返回为<code>void</code>,没有返回<code>ModelAndView</code>，可通过response修改响应内容,比如返回json数据：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">response.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">response.setContentType(<span class="string">"application/json;charset=utf-8"</span>);</span><br><span class="line">response.getWriter().write(<span class="string">"json串"</span>);</span><br></pre></td></tr></table></figure>
-<hr>
 <blockquote>
-<p>作者<a href="http://brianway.github.io/" target="_blank" rel="noopener">@brianway</a>更多文章：<a href="http://brianway.github.io/" target="_blank" rel="noopener">个人网站</a> <code>|</code> <a href="http://blog.csdn.net/h3243212/" target="_blank" rel="noopener">CSDN</a> <code>|</code> <a href="http://my.oschina.net/brianway" target="_blank" rel="noopener">oschina</a></p>
+<p>转载(<a href="http://brianway.github.io/" target="_blank" rel="noopener">http://brianway.github.io/</a>)</p>
 </blockquote>
 
       
@@ -560,16 +555,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//指定视图</span></span><br><span class="line"><span class="comment">//下边的路径，如果在视图解析器中配置jsp的路径前缀和后缀，修改为items/itemsList</span></span><br><span class="line"><span class="comment">//modelAndView.setViewName("/WEB-INF/jsp/items/itemsList.jsp");</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//下边的路径配置就可以不在程序中指定jsp路径的前缀和后缀</span></span><br><span class="line">modelAndView.setViewName(<span class="string">"items/itemsList"</span>);</span><br></pre></td></tr></table></figure>
 <h3 id="部署调试"><a href="#部署调试" class="headerlink" title="部署调试"></a>部署调试</h3><p><code>HTTP Status 404 -</code><br>处理器映射器根据url找不到Handler,说明url错误</p>
 <p><code>HTTP Status 404 -/springmvc/WEB-INF/jsp/items/itemsLists.jsp</code><br>处理器映射器根据url找到了Handler，转发的jsp页面找不到</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
-<ul>
-<li><a href="http://sishuok.com/forum/blogPost/list/5160.html" target="_blank" rel="noopener">第二章 Spring MVC入门 —— 跟开涛学SpringMVC</a></li>
-<li><a href="http://www.tutorialspoint.com/spring/spring_web_mvc_framework.htm" target="_blank" rel="noopener">Spring MVC Framework Tutorial - TutorialsPoint</a></li>
-<li><a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html" target="_blank" rel="noopener">Web MVC framework</a></li>
-</ul>
-</blockquote>
-<hr>
 <blockquote>
-<p>作者<a href="http://brianway.github.io/" target="_blank" rel="noopener">@brianway</a>更多文章：<a href="http://brianway.github.io/" target="_blank" rel="noopener">个人网站</a> <code>|</code> <a href="http://blog.csdn.net/h3243212/" target="_blank" rel="noopener">CSDN</a> <code>|</code> <a href="http://my.oschina.net/brianway" target="_blank" rel="noopener">oschina</a></p>
+<p>转载(<a href="http://brianway.github.io/" target="_blank" rel="noopener">http://brianway.github.io/</a>)</p>
 </blockquote>
 
       

@@ -17,7 +17,7 @@
 <meta property="og:description" content="Contents  springmvc框架原理 springmvc入门程序 环境搭建 配置文件 部署调试   参考链接   本文主要介绍springmvc的框架原理，并通过一个入门程序展示环境搭建，配置以及部署调试。 springmvc是spring框架的一个模块，springmvc和spring无需通过中间整合层进行整合。 springmvc框架原理给个官网示意图  组件及其作用  前端控制器(">
 <meta property="og:image" content="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/images/mvc.png">
 <meta property="og:image" content="http://7xph6d.com1.z0.glb.clouddn.com/springmvc_%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg">
-<meta property="og:updated_time" content="2018-01-16T11:19:49.933Z">
+<meta property="og:updated_time" content="2018-01-16T11:27:40.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springmvc学习笔记(1)-框架原理和入门配置">
 <meta name="twitter:description" content="Contents  springmvc框架原理 springmvc入门程序 环境搭建 配置文件 部署调试   参考链接   本文主要介绍springmvc的框架原理，并通过一个入门程序展示环境搭建，配置以及部署调试。 springmvc是spring框架的一个模块，springmvc和spring无需通过中间整合层进行整合。 springmvc框架原理给个官网示意图  组件及其作用  前端控制器(">
@@ -270,16 +270,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//指定视图</span></span><br><span class="line"><span class="comment">//下边的路径，如果在视图解析器中配置jsp的路径前缀和后缀，修改为items/itemsList</span></span><br><span class="line"><span class="comment">//modelAndView.setViewName("/WEB-INF/jsp/items/itemsList.jsp");</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//下边的路径配置就可以不在程序中指定jsp路径的前缀和后缀</span></span><br><span class="line">modelAndView.setViewName(<span class="string">"items/itemsList"</span>);</span><br></pre></td></tr></table></figure>
 <h3 id="部署调试"><a href="#部署调试" class="headerlink" title="部署调试"></a>部署调试</h3><p><code>HTTP Status 404 -</code><br>处理器映射器根据url找不到Handler,说明url错误</p>
 <p><code>HTTP Status 404 -/springmvc/WEB-INF/jsp/items/itemsLists.jsp</code><br>处理器映射器根据url找到了Handler，转发的jsp页面找不到</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><blockquote>
-<ul>
-<li><a href="http://sishuok.com/forum/blogPost/list/5160.html" target="_blank" rel="noopener">第二章 Spring MVC入门 —— 跟开涛学SpringMVC</a></li>
-<li><a href="http://www.tutorialspoint.com/spring/spring_web_mvc_framework.htm" target="_blank" rel="noopener">Spring MVC Framework Tutorial - TutorialsPoint</a></li>
-<li><a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html" target="_blank" rel="noopener">Web MVC framework</a></li>
-</ul>
-</blockquote>
-<hr>
 <blockquote>
-<p>作者<a href="http://brianway.github.io/" target="_blank" rel="noopener">@brianway</a>更多文章：<a href="http://brianway.github.io/" target="_blank" rel="noopener">个人网站</a> <code>|</code> <a href="http://blog.csdn.net/h3243212/" target="_blank" rel="noopener">CSDN</a> <code>|</code> <a href="http://my.oschina.net/brianway" target="_blank" rel="noopener">oschina</a></p>
+<p>转载(<a href="http://brianway.github.io/" target="_blank" rel="noopener">http://brianway.github.io/</a>)</p>
 </blockquote>
 
       
@@ -346,7 +338,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#springmvc框架原理"><span class="toc-number">1.</span> <span class="toc-text">springmvc框架原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#springmvc入门程序"><span class="toc-number">2.</span> <span class="toc-text">springmvc入门程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境搭建"><span class="toc-number">2.1.</span> <span class="toc-text">环境搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件"><span class="toc-number">2.2.</span> <span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署调试"><span class="toc-number">2.3.</span> <span class="toc-text">部署调试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#springmvc框架原理"><span class="toc-number">1.</span> <span class="toc-text">springmvc框架原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#springmvc入门程序"><span class="toc-number">2.</span> <span class="toc-text">springmvc入门程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境搭建"><span class="toc-number">2.1.</span> <span class="toc-text">环境搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件"><span class="toc-number">2.2.</span> <span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署调试"><span class="toc-number">2.3.</span> <span class="toc-text">部署调试</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
