@@ -143,6 +143,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Spring常用注解总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Spring常用注解总结"><a href="#Spring常用注解总结" class="headerlink" title="Spring常用注解总结"></a>Spring常用注解总结</h1><blockquote>
+<p>一直对spring的注解很模糊，刚好有时间看看视频，总结一下</p>
+</blockquote>
+<p>[TOC]</p>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="@Configuration"></a>@Configuration</h2><p>​         用于定义配置类，可以替换之前的xml，本质也是一个组件，作用于类上，当         于之前xml中d的<beans></beans></p>
+<h2 id="bean"><a href="#bean" class="headerlink" title="@bean"></a>@bean</h2><p>​       用于定义bean组件，作用于方法上。相当于xml中的<bean></bean></p>
+<h2 id="scope"><a href="#scope" class="headerlink" title="@scope"></a>@scope</h2><p>​     用于标注创建组件的作用域，作用于方法上 ，相当于xml中 scope属性。ioc中一共定义了四种作用域：singleton、prototype，reqeust、session</p>
+<ol>
+<li>singleton(默认)：单例模式，容器初始化的时候调用方法，将对象放入容器，以后每次回去都会从容器中直接获取</li>
+<li>prototype：多例模式，容器初始化的时候并不会调用方法，以后每次获取的时候都会调用方法创建对象</li>
+<li>reqeust：同一次请求创建对象</li>
+<li>session：同一个session创建对象</li>
+</ol>
+<h2 id="lazy"><a href="#lazy" class="headerlink" title="@lazy"></a>@lazy</h2><p>​     用于懒加载[^容器启动不创建对象，第一次调用的时候创建对象并初始化],作用于方法上，<strong>前提是组件的作用域必须是单例模式</strong></p>
+<h2 id="conditional"><a href="#conditional" class="headerlink" title="@conditional"></a>@conditional</h2><p>​    按照条件给容器中注入bean，作用于方法或者类上，入参为条件数组需要自己创建条件(必须实现condition接口);</p>
+<h2 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h2><p>   往容器中导入组件，作用于类上，条件为数组，也可以是@importSelector和@importBeanDefinitionRegistrar。eg:@import({Color.class,Red.class,MyimportSelector})</p>
+<h2 id="importSelector"><a href="#importSelector" class="headerlink" title="@importSelector"></a>@importSelector</h2><p>​    往容器中有选择的导入组件，作用于类上，需要自建创建选择器(必须实现importSelector接口)，可以将选择器以参数的形式传递给import。</p>
+<h2 id="importBeanDefinitionRegistrar"><a href="#importBeanDefinitionRegistrar" class="headerlink" title="@importBeanDefinitionRegistrar"></a>@importBeanDefinitionRegistrar</h2><p>   往容器中手动添加组件，作用于类上，需要自创建bean注册器(必须实现importBeanDefinitionRegistrar接口),可以将选择器以参数的形式传递给import。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/17/Spring常用注解总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-springmvc学习笔记(4)-前端控制器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
